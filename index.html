@@ -3,52 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mufe3 Studio | Official Developer Page</title>
+    <title>Mufe3 Studio | Official Page</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; backgroundColor: #f9f9f9; }
-        header { background: #0073e6; color: white; text-align: center; padding: 3rem 1rem; }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin: 0.5rem 0 0 0; font-size: 1.1rem; opacity: 0.9; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .section-title { border-bottom: 2px solid #0073e6; padding-bottom: 0.5rem; color: #0073e6; }
-        .app-card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem; }
-        .app-icon { width: 80px; height: 80px; border-radius: 16px; background: #0073e6; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 2rem; }
-        .app-details h3 { margin: 0 0 0.5rem 0; }
-        .app-details p { margin: 0 0 1rem 0; color: #666; }
-        .btn-playstore { background: #000; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 5px; font-weight: bold; display: inline-block; font-size: 0.9rem; }
-        footer { text-align: center; margin-top: 4rem; padding: 2rem; color: #888; font-size: 0.9rem; border-top: 1px solid #ddd; }
-        footer a { color: #0073e6; text-decoration: none; margin: 0 10px; }
+        /* Desain Dasar Clean & Elegant */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.7; 
+            margin: 0; 
+            padding: 0; 
+            color: #1d1d1f; 
+            background-color: #fafafa;
+        }
+
+        /* Navigasi Minimalis */
+        nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            /* Aksen Gradasi Warna Identitas sesuai Logo Anda */
+            background: linear-gradient(135deg, #1e3a8a, #6b21a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        header { 
+            text-align: center; 
+            padding: 5rem 1rem 4rem 1rem;
+            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.03), transparent);
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.8rem; 
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111;
+        }
+        header p { 
+            margin: 1rem 0 0 0; 
+            font-size: 1.2rem; 
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Container Konten */
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto 4rem auto; 
+            padding: 0 1.5rem; 
+        }
+        .section-title { 
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #222;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Kartu Aplikasi Bergaya Premium */
+        .app-card { 
+            background: #ffffff; 
+            border-radius: 16px; 
+            padding: 2rem; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex; 
+            align-items: center; 
+            gap: 2rem; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+        .app-icon { 
+            width: 90px; 
+            height: 90px; 
+            border-radius: 20px; 
+            background: linear-gradient(135deg, #1e3a8a, #6b21a8); 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 2.2rem; 
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            flex-shrink: 0;
+        }
+        .app-details h3 { 
+            margin: 0 0 0.5rem 0; 
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #111;
+        }
+        .app-details p { 
+            margin: 0 0 1.5rem 0; 
+            color: #555; 
+            font-size: 0.95rem;
+        }
+        
+        /* Tombol download bergaya iOS/Modern */
+        .btn-playstore { 
+            background: #111; 
+            color: white; 
+            text-decoration: none; 
+            padding: 0.7rem 1.5rem; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            display: inline-flex; 
+            align-items: center;
+            font-size: 0.85rem; 
+            letter-spacing: 0.3px;
+            transition: background 0.2s ease;
+        }
+        .btn-playstore:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            margin-top: 6rem; 
+            padding: 3rem 1rem; 
+            color: #888; 
+            font-size: 0.85rem; 
+            border-top: 1px solid #eee; 
+            background-color: #ffffff;
+        }
+        footer a { 
+            color: #555; 
+            text-decoration: none; 
+            margin: 0 12px; 
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: #6b21a8;
+        }
+
+        /* Responsif untuk Smartphone */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .app-card { flex-direction: column; text-align: center; padding: 1.5rem; }
+            .app-icon { width: 80px; height: 80px; font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Navigasi Atas -->
+    <nav>
+        <div class="nav-container">
+            <div class="brand-name">Mufe3.Dev</div>
+        </div>
+    </nav>
+
+    <!-- Halaman Banner Utama -->
     <header>
         <h1>Mufe3 Studio</h1>
-        <p>Creating Innovative and High-Quality Android Applications</p>
+        <p>Kami menciptakan aplikasi Android yang indah, fungsional, dan memberikan solusi nyata bagi pengguna.</p>
     </header>
 
+    <!-- Bagian Portofolio Aplikasi -->
     <div class="container">
-        <h2 class="section-title">Our Applications</h2>
+        <h2 class="section-title">Aplikasi Kami</h2>
         
-        <!-- Kartu Aplikasi AksaraKu -->
         <div class="app-card">
-            <!-- Anda bisa mengganti huruf 'A' ini dengan gambar logo asli nanti -->
             <div class="app-icon">A</div>
             <div class="app-details">
                 <h3>AksaraKu</h3>
-                <p>Aplikasi interaktif yang dirancang khusus untuk membantu Anda belajar menulis dan memahami aksara dengan metode yang mudah, cepat, dan menyenangkan.</p>
-                <!-- Ganti tanda # di bawah dengan link Google Play Store aplikasi AksaraKu Anda -->
-                <a href="#" target="_blank" class="btn-playstore">Get it on Google Play</a>
+                <p>Aplikasi interaktif yang dirancang khusus untuk membantu Anda belajar menulis dan memahami aksara dengan metode yang mudah, cepat, dan menyenangkan langsung dari perangkat Android Anda.</p>
+                <!-- 💡 SILAKAN GANTI TANDA # DI BAWAH INI DENGAN LINK GOOGLE PLAY STORE ANDA NANTI -->
+                <a href="#" target="_blank" class="btn-playstore">Unduh di Google Play</a>
             </div>
         </div>
     </div>
 
+    <!-- Halaman Kaki Informasi -->
     <footer>
         <p>&copy; 2026 Mufe3 Studio. All rights reserved.</p>
         <p>
-            <!-- Ganti tanda # dengan link Google Sites Kebijakan Privasi Anda -->
-            <a href="#" target="_blank">Privacy Policy</a> | 
-            <a href="mailto:email-anda@gmail.com">Contact Support</a>
+            <!-- 💡 SILAKAN GANTI TANDA # DI BAWAH DENGAN TAUTAN PRIVACY POLICY GOOGLE SITES ANDA -->
+            <a href="#" target="_blank">Kebijakan Privasi</a> | 
+            <!-- 💡 SILAKAN TULIS EMAIL ANDA DI BAWAH -->
+            <a href="mailto:support@mufe3.dev">Hubungi Dukungan</a>
         </p>
     </footer>
 
