@@ -40,13 +40,11 @@
             --btn-hover: #e0e0e0;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.7; 
-            margin: 0; 
-            padding: 0; 
+            line-height: 1.6; 
             color: var(--text); 
             background-color: var(--bg);
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -57,7 +55,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -72,7 +70,7 @@
         }
 
         .brand-name {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, #1e3a8a, #6b21a8);
@@ -85,144 +83,143 @@
             background: none;
             border: 1px solid var(--border);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            transition: all 0.2s ease;
+            font-size: 1.05rem;
             color: var(--text);
+            transition: all 0.2s ease;
         }
 
         .theme-toggle:hover {
             background: var(--border);
         }
 
+        /* ===== HEADER LEBIH RINGKAS ===== */
         header { 
             text-align: center; 
-            padding: 4.5rem 1rem 3rem 1rem;
-            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.06), transparent);
+            padding: 2.2rem 1.2rem 1.2rem;
+            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.05), transparent);
         }
 
         header h1 { 
-            margin: 0; 
-            font-size: 2.7rem; 
+            font-size: 2.1rem; 
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.8px;
             color: var(--text);
+            margin-bottom: 0.5rem;
         }
 
         header p { 
-            margin: 1rem auto 0 auto; 
-            font-size: 1.15rem; 
+            font-size: 1rem; 
             color: var(--text-secondary);
-            max-width: 580px;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
         .section-title { 
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.3px;
             color: var(--text);
             text-align: center;
-            margin-bottom: 1.8rem;
+            margin: 1.5rem 0 1rem;
         }
 
-        /* ========== SLIDER ========== */
+        /* ===== SLIDER ===== */
         .slider-wrapper {
             max-width: 1100px;
-            margin: 0 auto 5rem auto;
-            padding: 0 1rem;
+            margin: 0 auto 3.5rem;
+            padding: 0 0.5rem;
             overflow: hidden;
         }
 
         .slider {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.4rem;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            padding: 2.5rem 18% 3rem 18%; /* biar kartu tengah terlihat bagus */
+            padding: 1.5rem 12% 2rem;
             -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
 
         .slider::-webkit-scrollbar {
             display: none;
         }
 
-        .slider {
-            scrollbar-width: none;
-        }
-
         .app-card {
-            flex: 0 0 320px;
+            flex: 0 0 290px;
             scroll-snap-align: center;
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2rem 1.8rem;
+            border-radius: 18px;
+            padding: 1.7rem 1.5rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
             text-align: center;
-            transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                        opacity 0.45s ease,
-                        box-shadow 0.45s ease;
-            transform: scale(0.82);
-            opacity: 0.55;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        opacity 0.4s ease,
+                        box-shadow 0.4s ease;
+            transform: scale(0.84);
+            opacity: 0.6;
         }
 
         .app-card.active {
             transform: scale(1);
             opacity: 1;
-            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.15);
+            box-shadow: 0 12px 35px rgba(30, 58, 138, 0.14);
         }
 
         [data-theme="dark"] .app-card.active {
-            box-shadow: 0 15px 40px rgba(107, 33, 168, 0.25);
+            box-shadow: 0 12px 35px rgba(107, 33, 168, 0.22);
         }
 
         .app-icon { 
-            width: 88px; 
-            height: 88px; 
-            border-radius: 22px; 
+            width: 78px; 
+            height: 78px; 
+            border-radius: 20px; 
             background: linear-gradient(135deg, #1e3a8a, #6b21a8); 
             color: white; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             font-weight: 700; 
-            font-size: 2.1rem; 
-            margin: 0 auto 1.4rem auto;
-            box-shadow: 0 6px 18px rgba(30, 58, 138, 0.25);
+            font-size: 1.9rem; 
+            margin: 0 auto 1.1rem;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.25);
         }
 
         .app-card h3 { 
-            margin: 0 0 0.6rem 0; 
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text);
+            margin-bottom: 0.45rem;
         }
 
         .app-card p { 
-            margin: 0 0 1.6rem 0; 
             color: var(--text-secondary); 
-            font-size: 0.93rem;
-            line-height: 1.55;
-            min-height: 70px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.3rem;
+            min-height: 58px;
         }
 
         .btn-playstore { 
             background: var(--btn-bg); 
             color: var(--bg); 
             text-decoration: none; 
-            padding: 0.72rem 1.35rem; 
+            padding: 0.65rem 1.25rem; 
             border-radius: 30px; 
             font-weight: 600; 
             display: inline-flex; 
             align-items: center;
-            gap: 8px;
-            font-size: 0.88rem; 
+            gap: 7px;
+            font-size: 0.85rem; 
             transition: all 0.2s ease;
         }
 
@@ -232,23 +229,22 @@
         }
 
         .btn-playstore svg {
-            width: 17px;
-            height: 17px;
+            width: 16px;
+            height: 16px;
             fill: currentColor;
         }
 
-        /* Navigasi slider (opsional) */
         .slider-nav {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: -1.5rem;
-            margin-bottom: 2rem;
+            gap: 10px;
+            margin-top: -0.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .slider-dot {
-            width: 9px;
-            height: 9px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--border);
             border: none;
@@ -259,14 +255,14 @@
 
         .slider-dot.active {
             background: #6b21a8;
-            transform: scale(1.25);
+            transform: scale(1.3);
         }
 
         footer { 
             text-align: center; 
-            padding: 3rem 1rem; 
+            padding: 2.2rem 1rem; 
             color: var(--text-secondary); 
-            font-size: 0.85rem; 
+            font-size: 0.82rem; 
             border-top: 1px solid var(--border); 
             background-color: var(--footer-bg);
         }
@@ -274,22 +270,34 @@
         footer a { 
             color: var(--text-secondary); 
             text-decoration: none; 
-            margin: 0 12px; 
-            transition: color 0.2s ease;
+            margin: 0 10px; 
         }
 
         footer a:hover {
             color: #6b21a8;
         }
 
-        @media (max-width: 700px) {
-            header h1 { font-size: 2.2rem; }
+        /* ===== Desktop ===== */
+        @media (min-width: 768px) {
+            header {
+                padding: 3.5rem 1.5rem 1.8rem;
+            }
+            header h1 {
+                font-size: 2.6rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                margin: 2rem 0 1.2rem;
+                font-size: 1.4rem;
+            }
             .slider {
-                padding: 2rem 12% 2.5rem 12%;
-                gap: 1.3rem;
+                padding: 1.8rem 16% 2.5rem;
+                gap: 1.8rem;
             }
             .app-card {
-                flex: 0 0 280px;
+                flex: 0 0 320px;
             }
         }
     </style>
@@ -312,7 +320,6 @@
     <div class="slider-wrapper">
         <div class="slider" id="slider">
             
-            <!-- 1. AksaraKu -->
             <div class="app-card">
                 <div class="app-icon">A</div>
                 <h3>AksaraKu</h3>
@@ -323,7 +330,6 @@
                 </a>
             </div>
 
-            <!-- 2. Jejak Bayangan -->
             <div class="app-card">
                 <div class="app-icon">J</div>
                 <h3>Jejak Bayangan</h3>
@@ -334,7 +340,6 @@
                 </a>
             </div>
 
-            <!-- 3. Chameleon -->
             <div class="app-card">
                 <div class="app-icon">C</div>
                 <h3>Chameleon</h3>
@@ -345,7 +350,6 @@
                 </a>
             </div>
 
-            <!-- 4. Prompt Notes -->
             <div class="app-card">
                 <div class="app-icon">P</div>
                 <h3>Prompt Notes</h3>
@@ -356,7 +360,6 @@
                 </a>
             </div>
 
-            <!-- 5. NotiScan -->
             <div class="app-card">
                 <div class="app-icon">N</div>
                 <h3>NotiScan</h3>
@@ -369,7 +372,6 @@
 
         </div>
 
-        <!-- Dots navigasi -->
         <div class="slider-nav" id="sliderDots"></div>
     </div>
 
@@ -382,7 +384,7 @@
     </footer>
 
     <script>
-        // ========== Dark Mode ==========
+        // Dark Mode
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
@@ -407,12 +409,11 @@
             }
         });
 
-        // ========== Slider Logic ==========
+        // Slider
         const slider = document.getElementById('slider');
         const cards = document.querySelectorAll('.app-card');
         const dotsContainer = document.getElementById('sliderDots');
 
-        // Buat dots
         cards.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.classList.add('slider-dot');
@@ -452,19 +453,15 @@
             });
         }
 
-        // Update saat scroll
         slider.addEventListener('scroll', () => {
             requestAnimationFrame(updateActiveCard);
         });
 
-        // Initial
-        updateActiveCard();
-
-        // Optional: auto center first card on load
-        setTimeout(() => {
+        // Langsung tampilkan kartu pertama di tengah
+        window.addEventListener('load', () => {
             cards[0].scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
             updateActiveCard();
-        }, 50);
+        });
     </script>
 </body>
 </html>
