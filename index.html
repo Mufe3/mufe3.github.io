@@ -22,8 +22,7 @@
             --border: rgba(0, 0, 0, 0.05);
             --nav-bg: rgba(255, 255, 255, 0.85);
             --footer-bg: #ffffff;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
             --btn-bg: #111;
             --btn-hover: #333;
         }
@@ -36,15 +35,12 @@
             --border: rgba(255, 255, 255, 0.08);
             --nav-bg: rgba(28, 28, 30, 0.85);
             --footer-bg: #1c1c1e;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.45);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
             --btn-bg: #f5f5f7;
             --btn-hover: #e0e0e0;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
@@ -68,7 +64,7 @@
         }
 
         .nav-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -106,13 +102,13 @@
 
         header { 
             text-align: center; 
-            padding: 5rem 1rem 4rem 1rem;
+            padding: 4.5rem 1rem 3rem 1rem;
             background: radial-gradient(circle at top, rgba(107, 33, 168, 0.06), transparent);
         }
 
         header h1 { 
             margin: 0; 
-            font-size: 2.8rem; 
+            font-size: 2.7rem; 
             font-weight: 800;
             letter-spacing: -1px;
             color: var(--text);
@@ -120,115 +116,159 @@
 
         header p { 
             margin: 1rem auto 0 auto; 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             color: var(--text-secondary);
-            max-width: 600px;
-        }
-
-        .container { 
-            max-width: 850px; 
-            margin: 0 auto 4rem auto; 
-            padding: 0 1.5rem; 
+            max-width: 580px;
         }
 
         .section-title { 
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: -0.3px;
             color: var(--text);
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.8rem;
         }
 
-        .app-card { 
-            background: var(--card-bg); 
-            border-radius: 16px; 
-            padding: 2rem; 
-            box-shadow: var(--shadow); 
+        /* ========== SLIDER ========== */
+        .slider-wrapper {
+            max-width: 1100px;
+            margin: 0 auto 5rem auto;
+            padding: 0 1rem;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            gap: 1.8rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 2.5rem 18% 3rem 18%; /* biar kartu tengah terlihat bagus */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slider {
+            scrollbar-width: none;
+        }
+
+        .app-card {
+            flex: 0 0 320px;
+            scroll-snap-align: center;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            box-shadow: var(--shadow);
             border: 1px solid var(--border);
-            display: flex; 
-            align-items: center; 
-            gap: 2rem; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
+            text-align: center;
+            transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        opacity 0.45s ease,
+                        box-shadow 0.45s ease;
+            transform: scale(0.82);
+            opacity: 0.55;
         }
 
-        .app-card.visible {
+        .app-card.active {
+            transform: scale(1);
             opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.15);
         }
 
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+        [data-theme="dark"] .app-card.active {
+            box-shadow: 0 15px 40px rgba(107, 33, 168, 0.25);
         }
 
         .app-icon { 
-            width: 90px; 
-            height: 90px; 
-            border-radius: 20px; 
+            width: 88px; 
+            height: 88px; 
+            border-radius: 22px; 
             background: linear-gradient(135deg, #1e3a8a, #6b21a8); 
             color: white; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             font-weight: 700; 
-            font-size: 2.2rem; 
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.25);
-            flex-shrink: 0;
-            overflow: hidden;
+            font-size: 2.1rem; 
+            margin: 0 auto 1.4rem auto;
+            box-shadow: 0 6px 18px rgba(30, 58, 138, 0.25);
         }
 
-        .app-details h3 { 
-            margin: 0 0 0.5rem 0; 
-            font-size: 1.4rem;
+        .app-card h3 { 
+            margin: 0 0 0.6rem 0; 
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--text);
         }
 
-        .app-details p { 
-            margin: 0 0 1.5rem 0; 
+        .app-card p { 
+            margin: 0 0 1.6rem 0; 
             color: var(--text-secondary); 
-            font-size: 0.95rem;
+            font-size: 0.93rem;
+            line-height: 1.55;
+            min-height: 70px;
         }
 
         .btn-playstore { 
             background: var(--btn-bg); 
             color: var(--bg); 
             text-decoration: none; 
-            padding: 0.75rem 1.4rem; 
+            padding: 0.72rem 1.35rem; 
             border-radius: 30px; 
             font-weight: 600; 
             display: inline-flex; 
             align-items: center;
             gap: 8px;
-            font-size: 0.9rem; 
-            letter-spacing: 0.2px;
+            font-size: 0.88rem; 
             transition: all 0.2s ease;
         }
 
         .btn-playstore:hover {
             background: var(--btn-hover);
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
         .btn-playstore svg {
-            width: 18px;
-            height: 18px;
+            width: 17px;
+            height: 17px;
             fill: currentColor;
+        }
+
+        /* Navigasi slider (opsional) */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: -1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .slider-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            padding: 0;
+        }
+
+        .slider-dot.active {
+            background: #6b21a8;
+            transform: scale(1.25);
         }
 
         footer { 
             text-align: center; 
-            margin-top: 4rem; 
             padding: 3rem 1rem; 
             color: var(--text-secondary); 
             font-size: 0.85rem; 
             border-top: 1px solid var(--border); 
             background-color: var(--footer-bg);
-            transition: background-color 0.3s ease;
         }
 
         footer a { 
@@ -242,10 +282,15 @@
             color: #6b21a8;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             header h1 { font-size: 2.2rem; }
-            .app-card { flex-direction: column; text-align: center; padding: 1.5rem; }
-            .app-icon { width: 80px; height: 80px; font-size: 2rem; }
+            .slider {
+                padding: 2rem 12% 2.5rem 12%;
+                gap: 1.3rem;
+            }
+            .app-card {
+                flex: 0 0 280px;
+            }
         }
     </style>
 </head>
@@ -253,9 +298,7 @@
     <nav>
         <div class="nav-container">
             <div class="brand-name">Mufe3.Dev</div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                🌙
-            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
         </div>
     </nav>
 
@@ -264,26 +307,25 @@
         <p>Kami menciptakan aplikasi Android yang indah, fungsional, dan memberikan solusi nyata bagi pengguna.</p>
     </header>
 
-    <div class="container">
-        <h2 class="section-title">Aplikasi Kami</h2>
-        
-        <!-- 1. AksaraKu -->
-        <div class="app-card">
-            <div class="app-icon">A</div>
-            <div class="app-details">
+    <h2 class="section-title">Aplikasi Kami</h2>
+
+    <div class="slider-wrapper">
+        <div class="slider" id="slider">
+            
+            <!-- 1. AksaraKu -->
+            <div class="app-card">
+                <div class="app-icon">A</div>
                 <h3>AksaraKu</h3>
-                <p>Aplikasi interaktif yang dirancang khusus untuk membantu Anda belajar menulis dan memahami aksara dengan metode yang mudah, cepat, dan menyenangkan langsung dari perangkat Android Anda.</p>
+                <p>Aplikasi interaktif untuk belajar menulis dan memahami aksara dengan mudah dan menyenangkan.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.aksaraku" target="_blank" class="btn-playstore">
                     <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
-        </div>
 
-        <!-- 2. Jejak Bayangan -->
-        <div class="app-card">
-            <div class="app-icon">J</div>
-            <div class="app-details">
+            <!-- 2. Jejak Bayangan -->
+            <div class="app-card">
+                <div class="app-icon">J</div>
                 <h3>Jejak Bayangan</h3>
                 <p>Aplikasi kedua dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan" target="_blank" class="btn-playstore">
@@ -291,12 +333,10 @@
                     Unduh di Google Play
                 </a>
             </div>
-        </div>
 
-        <!-- 3. Chameleon -->
-        <div class="app-card">
-            <div class="app-icon">C</div>
-            <div class="app-details">
+            <!-- 3. Chameleon -->
+            <div class="app-card">
+                <div class="app-icon">C</div>
                 <h3>Chameleon</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.chameleon" target="_blank" class="btn-playstore">
@@ -304,12 +344,10 @@
                     Unduh di Google Play
                 </a>
             </div>
-        </div>
 
-        <!-- 4. Prompt Notes -->
-        <div class="app-card">
-            <div class="app-icon">P</div>
-            <div class="app-details">
+            <!-- 4. Prompt Notes -->
+            <div class="app-card">
+                <div class="app-icon">P</div>
                 <h3>Prompt Notes</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.promptnotes" target="_blank" class="btn-playstore">
@@ -317,12 +355,10 @@
                     Unduh di Google Play
                 </a>
             </div>
-        </div>
 
-        <!-- 5. NotiScan -->
-        <div class="app-card">
-            <div class="app-icon">N</div>
-            <div class="app-details">
+            <!-- 5. NotiScan -->
+            <div class="app-card">
+                <div class="app-icon">N</div>
                 <h3>NotiScan</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.notiscan" target="_blank" class="btn-playstore">
@@ -330,7 +366,11 @@
                     Unduh di Google Play
                 </a>
             </div>
+
         </div>
+
+        <!-- Dots navigasi -->
+        <div class="slider-nav" id="sliderDots"></div>
     </div>
 
     <footer>
@@ -342,11 +382,10 @@
     </footer>
 
     <script>
-        // Dark Mode
+        // ========== Dark Mode ==========
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
 
-        // Cek preferensi sebelumnya
         const savedTheme = localStorage.getItem('theme') || 
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         
@@ -368,22 +407,64 @@
             }
         });
 
-        // Animasi muncul saat scroll
+        // ========== Slider Logic ==========
+        const slider = document.getElementById('slider');
         const cards = document.querySelectorAll('.app-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100); // delay sedikit biar berurutan
-                }
+        const dotsContainer = document.getElementById('sliderDots');
+
+        // Buat dots
+        cards.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             });
-        }, {
-            threshold: 0.15
+            dotsContainer.appendChild(dot);
         });
 
-        cards.forEach(card => observer.observe(card));
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function updateActiveCard() {
+            const sliderRect = slider.getBoundingClientRect();
+            const centerX = sliderRect.left + sliderRect.width / 2;
+
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(centerX - cardCenter);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            cards.forEach((card, index) => {
+                card.classList.toggle('active', index === closestIndex);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === closestIndex);
+            });
+        }
+
+        // Update saat scroll
+        slider.addEventListener('scroll', () => {
+            requestAnimationFrame(updateActiveCard);
+        });
+
+        // Initial
+        updateActiveCard();
+
+        // Optional: auto center first card on load
+        setTimeout(() => {
+            cards[0].scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
+            updateActiveCard();
+        }, 50);
     </script>
 </body>
 </html>
