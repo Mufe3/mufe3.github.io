@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mufe3 Studio - Pengembang aplikasi Android yang indah, fungsional, dan bermanfaat.">
+    <meta name="theme-color" content="#1e3a8a">
+    
+    <!-- Open Graph (biar bagus saat di-share) -->
+    <meta property="og:title" content="Mufe3 Studio | Official Page">
+    <meta property="og:description" content="Kami menciptakan aplikasi Android yang indah, fungsional, dan memberikan solusi nyata bagi pengguna.">
+    <meta property="og:type" content="website">
+    
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Mufe3 Studio | Official Page</title>
+    
     <style>
-        /* Desain Dasar Clean & Elegant */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
             line-height: 1.7; 
@@ -15,12 +23,10 @@
             color: #1d1d1f; 
             background-color: #fafafa;
         }
-
-        /* Navigasi Minimalis */
         nav {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             padding: 1rem 2rem;
             position: sticky;
@@ -38,17 +44,15 @@
             font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            /* Aksen Gradasi Warna Identitas sesuai Logo Anda */
             background: linear-gradient(135deg, #1e3a8a, #6b21a8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        /* Hero Section */
         header { 
             text-align: center; 
             padding: 5rem 1rem 4rem 1rem;
-            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.03), transparent);
+            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.04), transparent);
         }
         header h1 { 
             margin: 0; 
@@ -58,15 +62,11 @@
             color: #111;
         }
         header p { 
-            margin: 1rem 0 0 0; 
+            margin: 1rem auto 0 auto; 
             font-size: 1.2rem; 
             color: #666;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
-
-        /* Container Konten */
         .container { 
             max-width: 850px; 
             margin: 0 auto 4rem auto; 
@@ -79,8 +79,6 @@
             color: #222;
             margin-bottom: 1.5rem;
         }
-
-        /* Kartu Aplikasi Bergaya Premium */
         .app-card { 
             background: #ffffff; 
             border-radius: 16px; 
@@ -91,6 +89,7 @@
             align-items: center; 
             gap: 2rem; 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
         }
         .app-card:hover {
             transform: translateY(-4px);
@@ -109,6 +108,12 @@
             font-size: 2.2rem; 
             box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
             flex-shrink: 0;
+            overflow: hidden;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .app-details h3 { 
             margin: 0 0 0.5rem 0; 
@@ -121,8 +126,6 @@
             color: #555; 
             font-size: 0.95rem;
         }
-        
-        /* Tombol download bergaya iOS/Modern */
         .btn-playstore { 
             background: #111; 
             color: white; 
@@ -139,11 +142,9 @@
         .btn-playstore:hover {
             background: #333;
         }
-
-        /* Footer */
         footer { 
             text-align: center; 
-            margin-top: 6rem; 
+            margin-top: 4rem; 
             padding: 3rem 1rem; 
             color: #888; 
             font-size: 0.85rem; 
@@ -159,8 +160,6 @@
         footer a:hover {
             color: #6b21a8;
         }
-
-        /* Responsif untuk Smartphone */
         @media (max-width: 600px) {
             header h1 { font-size: 2.2rem; }
             .app-card { flex-direction: column; text-align: center; padding: 1.5rem; }
@@ -169,54 +168,53 @@
     </style>
 </head>
 <body>
-
-    <!-- Navigasi Atas -->
     <nav>
         <div class="nav-container">
             <div class="brand-name">Mufe3.Dev</div>
         </div>
     </nav>
 
-    <!-- Halaman Banner Utama -->
     <header>
         <h1>Mufe3 Studio</h1>
         <p>Kami menciptakan aplikasi Android yang indah, fungsional, dan memberikan solusi nyata bagi pengguna.</p>
     </header>
 
-    <!-- Bagian Portofolio Aplikasi -->
     <div class="container">
         <h2 class="section-title">Aplikasi Kami</h2>
         
+        <!-- Aplikasi 1: AksaraKu -->
         <div class="app-card">
             <div class="app-icon">A</div>
+            <!-- Nanti ganti dengan: <div class="app-icon"><img src="logo-aksaraku.png" alt="AksaraKu"></div> -->
             <div class="app-details">
                 <h3>AksaraKu</h3>
                 <p>Aplikasi interaktif yang dirancang khusus untuk membantu Anda belajar menulis dan memahami aksara dengan metode yang mudah, cepat, dan menyenangkan langsung dari perangkat Android Anda.</p>
-                <!-- 💡 SILAKAN GANTI TANDA # DI BAWAH INI DENGAN LINK GOOGLE PLAY STORE ANDA NANTI -->
-                <a href="https://play.google.com/store/apps/details?id=dev.mufe3.aksaraku" target="_blank" class="btn-playstore">Unduh di Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=dev.mufe3.aksaraku" target="_blank" class="btn-playstore">
+                    Unduh di Google Play
+                </a>
             </div>
         </div>
+
+        <!-- Aplikasi 2: Jejak Bayangan -->
         <div class="app-card">
-            <div class="app-icon">A</div>
+            <div class="app-icon">J</div>
+            <!-- Nanti ganti dengan: <div class="app-icon"><img src="logo-jejakbayangan.png" alt="Jejak Bayangan"></div> -->
             <div class="app-details">
                 <h3>Jejak Bayangan</h3>
-                <p>Aplikasi Kedua kami</p>
-                <!-- 💡 SILAKAN GANTI TANDA # DI BAWAH INI DENGAN LINK GOOGLE PLAY STORE ANDA NANTI -->
-                <a href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan" target="_blank" class="btn-playstore">Unduh di Google Play</a>
+                <p>Aplikasi kedua dari Mufe3 Studio.</p>
+                <a href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan" target="_blank" class="btn-playstore">
+                    Unduh di Google Play
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Halaman Kaki Informasi -->
     <footer>
         <p>&copy; 2026 Mufe3 Studio. All rights reserved.</p>
         <p>
-            <!-- 💡 SILAKAN GANTI TANDA # DI BAWAH DENGAN TAUTAN PRIVACY POLICY GOOGLE SITES ANDA -->
-            <a href="#" target="_blank">Kebijakan Privasi</a> | 
-            <!-- 💡 SILAKAN TULIS EMAIL ANDA DI BAWAH -->
+            <a href="privacy-policy.html">Kebijakan Privasi</a> | 
             <a href="mailto:support@mufe3.dev">Hubungi Dukungan</a>
         </p>
     </footer>
-
 </body>
 </html>
