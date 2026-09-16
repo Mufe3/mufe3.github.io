@@ -14,24 +14,59 @@
     <title>Mufe3 Studio | Official Page</title>
     
     <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1d1d1f;
+            --text-secondary: #555;
+            --card-bg: #ffffff;
+            --border: rgba(0, 0, 0, 0.05);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --footer-bg: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.06);
+            --btn-bg: #111;
+            --btn-hover: #333;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f11;
+            --text: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --card-bg: #1c1c1e;
+            --border: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(28, 28, 30, 0.85);
+            --footer-bg: #1c1c1e;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.45);
+            --btn-bg: #f5f5f7;
+            --btn-hover: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
             line-height: 1.7; 
             margin: 0; 
             padding: 0; 
-            color: #1d1d1f; 
-            background-color: #fafafa;
+            color: var(--text); 
+            background-color: var(--bg);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         nav {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: var(--nav-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
         .nav-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -39,6 +74,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .brand-name {
             font-size: 1.3rem;
             font-weight: 700;
@@ -48,52 +84,87 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            color: var(--text);
+        }
+
+        .theme-toggle:hover {
+            background: var(--border);
+        }
+
         header { 
             text-align: center; 
             padding: 5rem 1rem 4rem 1rem;
-            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.04), transparent);
+            background: radial-gradient(circle at top, rgba(107, 33, 168, 0.06), transparent);
         }
+
         header h1 { 
             margin: 0; 
             font-size: 2.8rem; 
             font-weight: 800;
             letter-spacing: -1px;
-            color: #111;
+            color: var(--text);
         }
+
         header p { 
             margin: 1rem auto 0 auto; 
             font-size: 1.2rem; 
-            color: #666;
+            color: var(--text-secondary);
             max-width: 600px;
         }
+
         .container { 
             max-width: 850px; 
             margin: 0 auto 4rem auto; 
             padding: 0 1.5rem; 
         }
+
         .section-title { 
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.3px;
-            color: #222;
+            color: var(--text);
             margin-bottom: 1.5rem;
         }
+
         .app-card { 
-            background: #ffffff; 
+            background: var(--card-bg); 
             border-radius: 16px; 
             padding: 2rem; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: var(--shadow); 
+            border: 1px solid var(--border);
             display: flex; 
             align-items: center; 
             gap: 2rem; 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
+        .app-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
+
         .app-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow-hover);
         }
+
         .app-icon { 
             width: 90px; 
             height: 90px; 
@@ -105,60 +176,72 @@
             justify-content: center; 
             font-weight: 700; 
             font-size: 2.2rem; 
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.25);
             flex-shrink: 0;
             overflow: hidden;
         }
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+
         .app-details h3 { 
             margin: 0 0 0.5rem 0; 
             font-size: 1.4rem;
             font-weight: 700;
-            color: #111;
+            color: var(--text);
         }
+
         .app-details p { 
             margin: 0 0 1.5rem 0; 
-            color: #555; 
+            color: var(--text-secondary); 
             font-size: 0.95rem;
         }
+
         .btn-playstore { 
-            background: #111; 
-            color: white; 
+            background: var(--btn-bg); 
+            color: var(--bg); 
             text-decoration: none; 
-            padding: 0.7rem 1.5rem; 
+            padding: 0.75rem 1.4rem; 
             border-radius: 30px; 
             font-weight: 600; 
             display: inline-flex; 
             align-items: center;
-            font-size: 0.85rem; 
-            letter-spacing: 0.3px;
-            transition: background 0.2s ease;
+            gap: 8px;
+            font-size: 0.9rem; 
+            letter-spacing: 0.2px;
+            transition: all 0.2s ease;
         }
+
         .btn-playstore:hover {
-            background: #333;
+            background: var(--btn-hover);
+            transform: scale(1.03);
         }
+
+        .btn-playstore svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
         footer { 
             text-align: center; 
             margin-top: 4rem; 
             padding: 3rem 1rem; 
-            color: #888; 
+            color: var(--text-secondary); 
             font-size: 0.85rem; 
-            border-top: 1px solid #eee; 
-            background-color: #ffffff;
+            border-top: 1px solid var(--border); 
+            background-color: var(--footer-bg);
+            transition: background-color 0.3s ease;
         }
+
         footer a { 
-            color: #555; 
+            color: var(--text-secondary); 
             text-decoration: none; 
             margin: 0 12px; 
             transition: color 0.2s ease;
         }
+
         footer a:hover {
             color: #6b21a8;
         }
+
         @media (max-width: 600px) {
             header h1 { font-size: 2.2rem; }
             .app-card { flex-direction: column; text-align: center; padding: 1.5rem; }
@@ -170,6 +253,9 @@
     <nav>
         <div class="nav-container">
             <div class="brand-name">Mufe3.Dev</div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                🌙
+            </button>
         </div>
     </nav>
 
@@ -188,6 +274,7 @@
                 <h3>AksaraKu</h3>
                 <p>Aplikasi interaktif yang dirancang khusus untuk membantu Anda belajar menulis dan memahami aksara dengan metode yang mudah, cepat, dan menyenangkan langsung dari perangkat Android Anda.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.aksaraku" target="_blank" class="btn-playstore">
+                    <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
@@ -200,6 +287,7 @@
                 <h3>Jejak Bayangan</h3>
                 <p>Aplikasi kedua dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan" target="_blank" class="btn-playstore">
+                    <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
@@ -212,6 +300,7 @@
                 <h3>Chameleon</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.chameleon" target="_blank" class="btn-playstore">
+                    <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
@@ -224,6 +313,7 @@
                 <h3>Prompt Notes</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.promptnotes" target="_blank" class="btn-playstore">
+                    <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
@@ -236,6 +326,7 @@
                 <h3>NotiScan</h3>
                 <p>Aplikasi dari Mufe3 Studio.</p>
                 <a href="https://play.google.com/store/apps/details?id=dev.mufe3.notiscan" target="_blank" class="btn-playstore">
+                    <svg viewBox="0 0 24 24"><path d="M3.18 23.76c-.12 0-.24-.03-.35-.08-.3-.14-.48-.44-.48-.77V1.09c0-.33.18-.63.48-.77.11-.05.23-.08.35-.08.18 0 .36.05.51.16l17.3 10.91c.23.14.37.39.37.66s-.14.52-.37.66L3.69 23.6c-.15.11-.33.16-.51.16z"/></svg>
                     Unduh di Google Play
                 </a>
             </div>
@@ -249,5 +340,50 @@
             <a href="mailto:support@mufe3.dev">Hubungi Dukungan</a>
         </p>
     </footer>
+
+    <script>
+        // Dark Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Cek preferensi sebelumnya
+        const savedTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (savedTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Animasi muncul saat scroll
+        const cards = document.querySelectorAll('.app-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100); // delay sedikit biar berurutan
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
 </body>
 </html>
