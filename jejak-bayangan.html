@@ -20,6 +20,7 @@
   a{color:var(--ungu)}
   .tombol{display:inline-block;background:var(--ungu);color:#fff !important;text-decoration:none;padding:10px 18px;border-radius:10px;margin:6px 6px 0 0;font-weight:600}
   .tombol.secondary{background:#fff;color:var(--ungu) !important;border:1.5px solid var(--ungu)}
+  .badge{display:inline-block;background:var(--ungu-muda);color:var(--ungu);border-radius:999px;padding:3px 14px;font-size:.8rem;font-weight:700;margin:26px 0 0}
   footer{background:#1f2937;color:#d1d5db;text-align:center;padding:20px 16px;font-size:.85rem}
   footer a{color:#fff}
 </style>
@@ -27,64 +28,96 @@
 <body>
 <header>
   <h1>Jejak Bayangan <span style="font-weight:400">(Shadow Trail)</span></h1>
-  <p>Jurnal keputusan privasi-first oleh Mufe3 Studio — paket <code>dev.mufe3.jejakbayangan</code> di Google Play</p>
+  <p>Mufe3 Studio · <code>dev.mufe3.jejakbayangan</code> · Google Play</p>
 </header>
 <main>
   <p>
-    <a class="tombol" href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan">Unduh di Google Play</a>
-    <a class="tombol secondary" href="https://mufe3.github.io/">Situs Mufe3 Studio</a>
+    <a class="tombol" href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan">Google Play</a>
+    <a class="tombol secondary" href="https://mufe3.github.io/">mufe3.github.io</a>
   </p>
 
-  <h2>What is Jejak Bayangan / Shadow Trail?</h2>
-  <div class="kartu">
-    <p><strong>Jejak Bayangan</strong> (English name: <strong>Shadow Trail</strong>) is an Android
-    decision-journal application. It helps you record small daily decisions, observe your behavioral
-    patterns, and receive reflective on-device summaries — without sending your personal data to any
-    developer server.</p>
-  </div>
+  <span class="badge">English</span>
+  <section lang="en">
+    <h2>What is Jejak Bayangan / Shadow Trail?</h2>
+    <div class="kartu">
+      <p><strong>Jejak Bayangan</strong> (English name: <strong>Shadow Trail</strong>) is an Android
+      decision-journal application. It helps you record small daily decisions, observe your behavioral
+      patterns, and receive reflective on-device summaries — without sending your personal data to any
+      developer server.</p>
+    </div>
+    <h2>Features</h2>
+    <div class="kartu">
+      <ul>
+        <li><strong>Decision journaling:</strong> record category, choice chip (accept / refuse / impulsive / skip / routine / other) and an optional note for each small decision.</li>
+        <li><strong>History &amp; patterns:</strong> calendar view, statistics and pattern overview of your decisions.</li>
+        <li><strong>"Bayangan" reflective summary:</strong> an on-device narrative mirroring your decision patterns, with continue/adjust scenarios and coaching questions.</li>
+        <li><strong>Home-screen widget &amp; reminders:</strong> gentle daily/weekly reminders and a widget for quick entry.</li>
+        <li><strong>App lock:</strong> optional biometric / device-credential lock for your journal.</li>
+        <li><strong>Backup &amp; restore:</strong> export/restore a local JSON file, or — optionally — sign in with Google to keep a backup copy in a hidden folder of <em>your own</em> Google Drive.</li>
+        <li><strong>Languages:</strong> Indonesian, English and more; offline-first behaviour.</li>
+      </ul>
+    </div>
+    <h2>Why the app requests Google sign-in &amp; what data is involved</h2>
+    <div class="kartu">
+      <p>Google sign-in is <strong>optional</strong> and serves <strong>one purpose only</strong>: letting
+      <em>you</em> save and restore a backup of your journal in your own Google Drive (hidden app folder,
+      scope <code>drive.appdata</code>).</p>
+      <ul>
+        <li>When you sign in, Google shares your <strong>name, email address and profile picture</strong> so the app can display which Drive account is connected.</li>
+        <li>Your journal content (decisions, notes, summaries) is <strong>never uploaded to any developer server</strong>; it stays on your device and, if you enable it, in your own Drive.</li>
+        <li>You can sign out and revoke access at any time from the app's Backup screen or your Google Account settings.</li>
+      </ul>
+    </div>
+    <h2>Privacy &amp; terms</h2>
+    <div class="kartu">
+      <p>Privacy policy: <a href="https://mufe3.github.io/privacy-policy.html">https://mufe3.github.io/privacy-policy.html</a></p>
+      <p>Terms of service: <a href="https://sites.google.com/view/terms-of-use-shadow-trail">https://sites.google.com/view/terms-of-use-shadow-trail</a></p>
+      <p>Questions: <a href="mailto:halo.jejakbayangan@gmail.com">halo.jejakbayangan@gmail.com</a> · <a href="mailto:support@mufe3.dev">support@mufe3.dev</a></p>
+    </div>
+  </section>
 
-  <h2>Features / Fungsi aplikasi</h2>
-  <div class="kartu">
-    <ul>
-      <li><strong>Decision journaling:</strong> record category, choice chip (accept / refuse / impulsive / skip / routine / other) and an optional note for each small decision.</li>
-      <li><strong>History &amp; patterns:</strong> calendar view, statistics and pattern overview of your decisions.</li>
-      <li><strong>"Bayangan" reflective summary:</strong> an on-device narrative mirroring your decision patterns, with continue/adjust scenarios and coaching questions.</li>
-      <li><strong>Home-screen widget &amp; reminders:</strong> gentle daily/weekly reminders and a widget for quick entry.</li>
-      <li><strong>App lock:</strong> optional biometric / device-credential lock for your journal.</li>
-      <li><strong>Backup &amp; restore:</strong> export/restore a local JSON file, or — optionally — sign in with Google to keep a backup copy in a hidden folder of <em>your own</em> Google Drive.</li>
-      <li><strong>Languages:</strong> Indonesian, English and more; offline-first behaviour.</li>
-    </ul>
-  </div>
-
-  <h2>Why the app requests Google sign-in &amp; what data is involved</h2>
-  <div class="kartu">
-    <p>Google sign-in is <strong>optional</strong> and serves <strong>one purpose only</strong>: letting
-    <em>you</em> save and restore a backup of your journal in your own Google Drive (hidden app folder,
-    scope <code>drive.appdata</code>).</p>
-    <ul>
-      <li>When you sign in, Google shares your <strong>name, email address and profile picture</strong> so the app can display which Drive account is connected.</li>
-      <li>Your journal content (decisions, notes, summaries) is <strong>never uploaded to any developer server</strong>; it stays on your device and, if you enable it, in your own Drive.</li>
-      <li>You can sign out and revoke access at any time from the app's Backup screen or your Google Account settings.</li>
-    </ul>
-  </div>
-
-  <h2>Privacy &amp; terms</h2>
-  <div class="kartu">
-    <p>Privacy policy: <a href="https://mufe3.github.io/privacy-policy.html">https://mufe3.github.io/privacy-policy.html</a></p>
-    <p>Terms of service: <a href="https://sites.google.com/view/terms-of-use-shadow-trail">https://sites.google.com/view/terms-of-use-shadow-trail</a></p>
-    <p>Questions: <a href="mailto:halo.jejakbayangan@gmail.com">halo.jejakbayangan@gmail.com</a> · <a href="mailto:support@mufe3.dev">support@mufe3.dev</a></p>
-  </div>
-
-  <h2>Ringkasan (Bahasa Indonesia)</h2>
-  <div class="kartu">
-    <p>Jejak Bayangan (Shadow Trail) adalah aplikasi jurnal keputusan Android yang menyimpan seluruh
-    data di perangkat Anda. Login Google bersifat opsional dan hanya dipakai untuk menyimpan salinan
-    cadangan ke Google Drive milik Anda sendiri (folder tersembunyi). Kami tidak mengoperasikan server
-    dan tidak menjual data apa pun.</p>
-  </div>
+  <span class="badge">Bahasa Indonesia</span>
+  <section lang="id">
+    <h2>Apa itu Jejak Bayangan / Shadow Trail?</h2>
+    <div class="kartu">
+      <p><strong>Jejak Bayangan</strong> (nama Inggris: <strong>Shadow Trail</strong>) adalah aplikasi
+      jurnal keputusan Android. Aplikasi ini membantu Anda mencatat keputusan kecil sehari-hari, mengamati
+      pola perilaku, dan menerima ringkasan reflektif yang diproses sepenuhnya di perangkat — tanpa
+      mengirim data pribadi Anda ke server developer mana pun.</p>
+    </div>
+    <h2>Fitur</h2>
+    <div class="kartu">
+      <ul>
+        <li><strong>Jurnal keputusan:</strong> catat kategori, chip pilihan (terima / tolak / impulsif / lewati / rutin / lainnya) dan catatan opsional untuk setiap keputusan kecil.</li>
+        <li><strong>Riwayat &amp; pola:</strong> tampilan kalender, statistik, dan ringkasan pola keputusan Anda.</li>
+        <li><strong>Ringkasan reflektif "Bayangan":</strong> narasi di perangkat yang memantulkan pola keputusan Anda, lengkap dengan skenario lanjut/sesuaikan dan pertanyaan pendamping.</li>
+        <li><strong>Widget &amp; pengingat:</strong> pengingat harian/mingguan yang lembut serta widget untuk pencatatan cepat.</li>
+        <li><strong>Kunci aplikasi:</strong> kunci biometrik/kredensial perangkat yang opsional untuk jurnal Anda.</li>
+        <li><strong>Cadangkan &amp; pulihkan:</strong> ekspor/pulihkan file JSON lokal, atau — opsional — masuk dengan Google untuk menyimpan salinan cadangan di folder tersembunyi Google Drive milik Anda sendiri.</li>
+        <li><strong>Bahasa:</strong> Indonesia, Inggris, dan lainnya; berperilaku offline-first.</li>
+      </ul>
+    </div>
+    <h2>Mengapa aplikasi meminta login Google &amp; data apa yang terlibat</h2>
+    <div class="kartu">
+      <p>Login Google bersifat <strong>opsional</strong> dan hanya untuk <strong>satu tujuan</strong>:
+      memungkinkan <em>Anda</em> menyimpan dan memulihkan cadangan jurnal di Google Drive milik Anda
+      sendiri (folder tersembunyi aplikasi, scope <code>drive.appdata</code>).</p>
+      <ul>
+        <li>Saat Anda masuk, Google membagikan <strong>nama, alamat email, dan foto profil</strong> Anda agar aplikasi dapat menampilkan akun Drive mana yang terhubung.</li>
+        <li>Konten jurnal Anda (keputusan, catatan, ringkasan) <strong>tidak pernah diunggah ke server developer mana pun</strong>; semuanya tetap di perangkat Anda dan, jika Anda mengaktifkannya, di Drive Anda sendiri.</li>
+        <li>Anda dapat keluar dan mencabut akses kapan saja dari layar Backup aplikasi atau dari setelan Akun Google Anda.</li>
+      </ul>
+    </div>
+    <h2>Privasi &amp; ketentuan</h2>
+    <div class="kartu">
+      <p>Kebijakan privasi: <a href="https://mufe3.github.io/privacy-policy.html">https://mufe3.github.io/privacy-policy.html</a></p>
+      <p>Persyaratan layanan: <a href="https://sites.google.com/view/terms-of-use-shadow-trail">https://sites.google.com/view/terms-of-use-shadow-trail</a></p>
+      <p>Pertanyaan: <a href="mailto:halo.jejakbayangan@gmail.com">halo.jejakbayangan@gmail.com</a> · <a href="mailto:support@mufe3.dev">support@mufe3.dev</a></p>
+    </div>
+  </section>
 </main>
 <footer>
-  © 2026 Mufe3 Studio · <a href="https://mufe3.github.io/">Beranda studio</a> · <a href="https://mufe3.github.io/privacy-policy.html">Kebijakan Privasi</a>
+  © 2026 Mufe3 Studio · <a href="https://mufe3.github.io/">mufe3.github.io</a> · <a href="https://mufe3.github.io/privacy-policy.html">privacy-policy.html</a>
 </footer>
 </body>
 </html>
