@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jejak Bayangan - Mufe3 Studio</title>
-    <meta name="description" content="Jejak Bayangan - Aplikasi pelacak jejak digital dengan privasi tinggi.">
+    <meta name="description" content="Jejak Bayangan adalah aplikasi inovatif untuk melacak jejak digital Anda dengan privasi terjamin.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,63 +20,103 @@
             --primary-dark: #4f46e5;
             --secondary: #8b5cf6;
             --dark: #0f172a;
-            --dark-light: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.2; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
         /* Navbar */
-        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
-        .navbar.scrolled { box-shadow: var(--shadow-lg); }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo { font-size: 1.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { box-shadow: var(--shadow-md); }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center; height: 70px;
+        }
+        .logo {
+            font-size: 1.4rem; font-weight: 800;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
         .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--dark); }
         .nav-links a:hover { color: var(--primary); }
+        .btn-download {
+            background: var(--gradient); color: white; padding: 10px 20px;
+            border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
 
         /* Hero */
-        .hero { padding: 140px 0 80px; background: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%); text-align: center; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--dark); }
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -10%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; color: var(--dark); }
         .hero p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto 30px; }
-        .badge { display: inline-block; background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin-bottom: 20px; }
+        .badge {
+            display: inline-block; padding: 6px 12px; background: rgba(99, 102, 241, 0.1);
+            color: var(--primary); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;
+        }
 
         /* Content Sections */
         .section { padding: 60px 0; background: white; }
-        .section-title { font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: var(--dark); }
-        .content-box { background: var(--light); padding: 30px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #e2e8f0; }
-        .content-box h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-dark); display: flex; align-items: center; gap: 10px; }
-        .content-box ul { list-style: none; padding-left: 10px; }
-        .content-box li { margin-bottom: 10px; position: relative; padding-left: 25px; color: var(--gray); }
-        .content-box li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
-        
-        .privacy-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin-top: 20px; }
-        .privacy-note strong { color: #b45309; }
+        .section-title { font-size: 1.8rem; margin-bottom: 20px; color: var(--dark); position: relative; display: inline-block; }
+        .section-title::after {
+            content: ''; position: absolute; bottom: -8px; left: 0; width: 40px; height: 3px;
+            background: var(--gradient); border-radius: 2px;
+        }
+        .content-box {
+            background: #f8fafc; padding: 30px; border-radius: 16px;
+            border: 1px solid #e2e8f0; margin-top: 20px;
+        }
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li {
+            margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px;
+        }
+        .feature-list i { color: var(--primary); margin-top: 4px; }
 
-        /* Buttons */
-        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: var(--transition); }
-        .btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
-        .btn-outline { background: white; border: 2px solid #e2e8f0; color: var(--dark); }
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+        /* Privacy Box */
+        .privacy-highlight {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 25px; border-radius: 8px; margin: 30px 0;
+        }
 
         /* Footer */
-        .footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; margin-top: auto; }
-        .footer p { color: #94a3b8; font-size: 0.9rem; }
-        .footer-links { margin-top: 15px; }
-        .footer-links a { color: #94a3b8; margin: 0 10px; font-size: 0.9rem; }
-        .footer-links a:hover { color: white; }
+        .footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; }
+        .footer p { opacity: 0.7; font-size: 0.9rem; }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a { color: white; opacity: 0.8; font-size: 0.9rem; }
+        .footer-links a:hover { opacity: 1; text-decoration: underline; }
 
         /* Animation */
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
@@ -84,7 +124,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
+            .nav-links { display: none; } /* Simplified for mobile */
         }
     </style>
 </head>
@@ -99,78 +139,92 @@
                 <li><a href="#features">Fitur</a></li>
                 <li><a href="#privacy">Privasi</a></li>
             </ul>
+            <a href="#" class="btn-download"><i class="fab fa-google-play"></i> Download</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container fade-in">
-            <span class="badge">Aplikasi Resmi</span>
+            <span class="badge">Aplikasi Privasi & Keamanan</span>
             <h1>Jejak Bayangan</h1>
-            <p>Temukan jejak digital Anda dengan aman dan privat. Aplikasi ini dirancang untuk membantu Anda memahami keberadaan digital tanpa menyimpan data pribadi.</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary"><i class="fab fa-google-play"></i> Download di Play Store</a>
-                <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> Kembali ke Beranda</a>
-            </div>
+            <p>Lacak jejak digital Anda dengan aman. Aplikasi ini dirancang untuk memberikan transparansi penuh atas data yang Anda tinggalkan di dunia maya.</p>
+            <a href="#" class="btn-download" style="padding: 14px 28px; font-size: 1.1rem;">
+                <i class="fab fa-google-play"></i> Unduh di Play Store
+            </a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Tentang Aplikasi</h2>
-            <div class="content-box fade-in">
-                <p>Jejak Bayangan adalah aplikasi inovatif yang dikembangkan oleh Mufe3 Studio untuk membantu pengguna melacak jejak digital mereka secara anonim. Kami percaya bahwa privasi adalah hak dasar setiap pengguna internet.</p>
-                <br>
-                <p>Aplikasi ini tidak memerlukan pendaftaran akun, tidak menyimpan riwayat pencarian di server, dan sepenuhnya berjalan di perangkat Anda.</p>
+        <div class="container fade-in">
+            <h2 class="section-title">Tentang Aplikasi</h2>
+            <div class="content-box">
+                <p>Jejak Bayangan adalah solusi inovatif dari Mufe3 Studio yang membantu pengguna memahami dan mengelola jejak digital mereka. Dalam era di mana data adalah aset berharga, aplikasi ini hadir sebagai teman setia untuk menjaga privasi Anda tetap utuh.</p>
+                <p style="margin-top: 15px;">Kami percaya bahwa setiap pengguna berhak mengetahui apa yang terjadi dengan data mereka. Oleh karena itu, Jejak Bayangan dibangun dengan prinsip transparansi dan keamanan tingkat tinggi.</p>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section" style="background-color: var(--light);">
-        <div class="container">
-            <h2 class="section-title fade-in">Fitur Unggulan</h2>
-            <div class="content-box fade-in">
-                <ul>
-                    <li><strong>Pencarian Anonim:</strong> Lacak jejak tanpa meninggalkan identitas.</li>
-                    <li><strong>Tanpa Iklan Mengganggu:</strong> Pengalaman pengguna yang bersih dan fokus.</li>
-                    <li><strong>Antarmuka Intuitif:</strong> Desain mudah digunakan untuk semua kalangan.</li>
-                    <li><strong>Hemat Baterai:</strong> Optimasi performa untuk penggunaan jangka panjang.</li>
-                    <li><strong>Mode Gelap:</strong> Nyaman di mata saat digunakan malam hari.</li>
-                </ul>
-            </div>
+    <section id="features" class="section" style="background: #f8fafc;">
+        <div class="container fade-in">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-check-circle fa-lg"></i>
+                    <div>
+                        <strong>Pelacakan Jejak Real-time</strong>
+                        <p style="color: var(--gray); font-size: 0.95rem;">Monitor aktivitas digital Anda secara langsung dan dapatkan notifikasi jika ada akses mencurigakan.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-shield-alt fa-lg"></i>
+                    <div>
+                        <strong>Enkripsi End-to-End</strong>
+                        <p style="color: var(--gray); font-size: 0.95rem;">Semua data Anda dilindungi dengan enkripsi militer-grade, memastikan hanya Anda yang bisa mengaksesnya.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-user-secret fa-lg"></i>
+                    <div>
+                        <strong>Mode Penyamaran</strong>
+                        <p style="color: var(--gray); font-size: 0.95rem;">Sembunyikan keberadaan aplikasi Anda dengan mode ikon tersamar untuk privasi ekstra.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-file-export fa-lg"></i>
+                    <div>
+                        <strong>Laporan Detail</strong>
+                        <p style="color: var(--gray); font-size: 0.95rem;">Ekspor laporan aktivitas harian, mingguan, atau bulanan dalam format PDF yang mudah dibaca.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
 
     <!-- Privacy Section -->
     <section id="privacy" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Komitmen Privasi</h2>
-            <div class="content-box fade-in">
-                <p>Kami sangat serius mengenai privasi Anda. Berikut adalah jaminan kami:</p>
-                <div class="privacy-note">
-                    <strong><i class="fas fa-shield-alt"></i> Data Lokal 100%</strong><br>
-                    Semua data pencarian disimpan hanya di perangkat Anda. Kami tidak memiliki akses ke riwayat aktivitas Anda.
-                </div>
-                <br>
-                <p>Jika Anda memiliki pertanyaan lebih lanjut mengenai kebijakan privasi, silakan hubungi tim dukungan kami melalui halaman utama.</p>
+        <div class="container fade-in">
+            <h2 class="section-title">Komitmen Privasi</h2>
+            <div class="privacy-highlight">
+                <h3 style="margin-bottom: 10px; color: var(--primary-dark);"><i class="fas fa-lock"></i> Data Anda Adalah Milik Anda</h3>
+                <p>Kami tidak menjual, menyewakan, atau membagikan data pribadi Anda kepada pihak ketiga manapun. Jejak Bayangan beroperasi dengan prinsip "Zero-Knowledge", artinya bahkan kami sebagai pengembang tidak dapat melihat data Anda.</p>
             </div>
-            
-            <div class="btn-group fade-in">
-                <a href="privacy-policy.html" class="btn btn-outline">Baca Kebijakan Privasi Lengkap</a>
-            </div>
+            <p style="color: var(--gray);">Untuk informasi lebih lanjut mengenai bagaimana kami menangani data, silakan baca kebijakan privasi lengkap kami.</p>
+            <a href="privacy-policy.html" style="color: var(--primary); font-weight: 600; margin-top: 10px; display: inline-block;">Baca Kebijakan Privasi &rarr;</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <h3 style="margin-bottom: 10px;">Mufe3 Studio</h3>
             <p>&copy; 2024 Mufe3 Studio. All rights reserved.</p>
             <div class="footer-links">
-                <a href="index.html">Beranda</a>
-                <a href="privacy-policy.html">Privasi</a>
-                <a href="#">Kontak</a>
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#">Support</a>
             </div>
         </div>
     </footer>
