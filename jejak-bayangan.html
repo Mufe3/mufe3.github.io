@@ -1,84 +1,196 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="74bQqY7XVlYFLKHCjyOg_oHmYJUvGqfeMlDEPPvT7uY" />
-<title>Jejak Bayangan (Shadow Trail) — Jurnal Keputusan Privasi-First | Mufe3 Studio</title>
-<meta name="description" content="Halaman resmi Jejak Bayangan (Shadow Trail), aplikasi jurnal keputusan Android yang mengutamakan privasi dari Mufe3 Studio. Fitur, kebijakan data, dan privasi.">
-<style>
-  :root{--ungu:#6d28d9;--ungu-muda:#ede9fe;--teks:#1f2937}
-  *{box-sizing:border-box}
-  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;color:var(--teks);line-height:1.65;background:#faf9fb}
-  header{background:linear-gradient(135deg,var(--ungu),#8b5cf6);color:#fff;padding:52px 20px;text-align:center}
-  header h1{margin:0 0 6px;font-size:2rem}
-  header p{margin:0;opacity:.92}
-  main{max-width:760px;margin:0 auto;padding:26px 20px 48px}
-  h2{color:var(--ungu);font-size:1.22rem;margin:32px 0 10px}
-  .kartu{background:#fff;border:1px solid #e9e5f2;border-radius:14px;padding:16px 20px;margin:12px 0}
-  ul{margin:8px 0 0 18px;padding:0}
-  li{margin:6px 0}
-  a{color:var(--ungu)}
-  .tombol{display:inline-block;background:var(--ungu);color:#fff !important;text-decoration:none;padding:10px 18px;border-radius:10px;margin:6px 6px 0 0;font-weight:600}
-  .tombol.secondary{background:#fff;color:var(--ungu) !important;border:1.5px solid var(--ungu)}
-  footer{background:#1f2937;color:#d1d5db;text-align:center;padding:20px 16px;font-size:.85rem}
-  footer a{color:#fff}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jejak Bayangan - Mufe3 Studio</title>
+    <meta name="description" content="Jejak Bayangan - Aplikasi pelacak jejak digital dengan privasi tinggi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
+        .navbar.scrolled { box-shadow: var(--shadow-lg); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero { padding: 140px 0 80px; background: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%); text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: var(--dark); }
+        .hero p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto 30px; }
+        .badge { display: inline-block; background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin-bottom: 20px; }
+
+        /* Content Sections */
+        .section { padding: 60px 0; background: white; }
+        .section-title { font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: var(--dark); }
+        .content-box { background: var(--light); padding: 30px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #e2e8f0; }
+        .content-box h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-dark); display: flex; align-items: center; gap: 10px; }
+        .content-box ul { list-style: none; padding-left: 10px; }
+        .content-box li { margin-bottom: 10px; position: relative; padding-left: 25px; color: var(--gray); }
+        .content-box li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
+        
+        .privacy-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .privacy-note strong { color: #b45309; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 12px; font-weight: 600; transition: var(--transition); }
+        .btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
+        .btn-outline { background: white; border: 2px solid #e2e8f0; color: var(--dark); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Footer */
+        .footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; margin-top: auto; }
+        .footer p { color: #94a3b8; font-size: 0.9rem; }
+        .footer-links { margin-top: 15px; }
+        .footer-links a { color: #94a3b8; margin: 0 10px; font-size: 0.9rem; }
+        .footer-links a:hover { color: white; }
+
+        /* Animation */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>Jejak Bayangan <span style="font-weight:400">(Shadow Trail)</span></h1>
-  <p>Mufe3 Studio · <code>dev.mufe3.jejakbayangan</code> · Google Play</p>
-</header>
-<main>
-  <p>
-    <a class="tombol" href="https://play.google.com/store/apps/details?id=dev.mufe3.jejakbayangan">Unduh di Google Play</a>
-    <a class="tombol secondary" href="https://mufe3.github.io/">Situs Mufe3 Studio</a>
-  </p>
 
-  <h2>Apa itu Jejak Bayangan?</h2>
-  <div class="kartu">
-    <p><strong>Jejak Bayangan</strong> (nama internasional: <strong>Shadow Trail</strong>) adalah
-    aplikasi jurnal keputusan Android yang dirancang untuk membantu pengguna merekam keputusan kecil
-    sehari-hari, mengamati pola perilaku, dan menerima ringkasan reflektif bernama <em>"Bayangan"</em>
-    yang diproses sepenuhnya di dalam perangkat — tanpa mengirim data pribadi apa pun ke server
-    developer.</p>
-  </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Mufe3 Studio</a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#privacy">Privasi</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <h2>Fitur utama</h2>
-  <div class="kartu">
-    <ul>
-      <li><strong>Jurnal keputusan:</strong> catat kategori, chip pilihan (terima / tolak / impulsif / lewati / rutin / lainnya), serta catatan opsional untuk setiap keputusan kecil.</li>
-      <li><strong>Riwayat &amp; pola:</strong> tampilan kalender, statistik, dan ringkasan pola keputusan sepanjang waktu.</li>
-      <li><strong>Ringkasan reflektif "Bayangan":</strong> narasi di perangkat yang memantulkan pola keputusan Anda, lengkap dengan skenario <em>lanjutkan</em> / <em>sesuaikan</em> dan pertanyaan pendamping.</li>
-      <li><strong>Widget &amp; pengingat:</strong> pengingat harian/mingguan yang lembut serta widget layar utama untuk pencatatan cepat.</li>
-      <li><strong>Kunci aplikasi:</strong> kunci biometrik atau kredensial perangkat yang opsional untuk melindungi jurnal Anda.</li>
-      <li><strong>Cadangkan &amp; pulihkan:</strong> ekspor/pulihkan file JSON lokal, atau — opsional — masuk dengan Google untuk menyimpan salinan cadangan di folder tersembunyi Google Drive milik Anda sendiri.</li>
-      <li><strong>Bahasa:</strong> Indonesia, Inggris, dan lainnya; berperilaku <em>offline-first</em>.</li>
-    </ul>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container fade-in">
+            <span class="badge">Aplikasi Resmi</span>
+            <h1>Jejak Bayangan</h1>
+            <p>Temukan jejak digital Anda dengan aman dan privat. Aplikasi ini dirancang untuk membantu Anda memahami keberadaan digital tanpa menyimpan data pribadi.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary"><i class="fab fa-google-play"></i> Download di Play Store</a>
+                <a href="index.html" class="btn btn-outline"><i class="fas fa-home"></i> Kembali ke Beranda</a>
+            </div>
+        </div>
+    </section>
 
-  <h2>Mengapa aplikasi meminta login Google, dan data apa yang terlibat?</h2>
-  <div class="kartu">
-    <p>Login Google bersifat <strong>opsional</strong> dan hanya untuk <strong>satu tujuan</strong>:
-    memungkinkan <em>Anda</em> menyimpan dan memulihkan cadangan jurnal di Google Drive milik Anda
-    sendiri (folder tersembunyi aplikasi, lingkup akses <code>drive.appdata</code>).</p>
-    <ul>
-      <li>Saat Anda masuk, Google membagikan <strong>nama, alamat email, dan foto profil</strong> Anda agar aplikasi dapat menampilkan akun Drive mana yang terhubung.</li>
-      <li>Seluruh isi jurnal Anda (keputusan, catatan, ringkasan) <strong>tidak pernah diunggah ke server developer mana pun</strong>; semuanya tetap di perangkat Anda dan, jika Anda mengaktifkannya, di Drive Anda sendiri.</li>
-      <li>Anda dapat keluar dan mencabut akses kapan saja dari layar Cadangkan di dalam aplikasi, atau dari pengaturan Akun Google Anda.</li>
-    </ul>
-  </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Tentang Aplikasi</h2>
+            <div class="content-box fade-in">
+                <p>Jejak Bayangan adalah aplikasi inovatif yang dikembangkan oleh Mufe3 Studio untuk membantu pengguna melacak jejak digital mereka secara anonim. Kami percaya bahwa privasi adalah hak dasar setiap pengguna internet.</p>
+                <br>
+                <p>Aplikasi ini tidak memerlukan pendaftaran akun, tidak menyimpan riwayat pencarian di server, dan sepenuhnya berjalan di perangkat Anda.</p>
+            </div>
+        </div>
+    </section>
 
-  <h2>Privasi &amp; ketentuan</h2>
-  <div class="kartu">
-    <p>Kebijakan privasi: <a href="https://mufe3.github.io/privacy-policy.html">https://mufe3.github.io/privacy-policy.html</a></p>
-    <p>Persyaratan layanan: <a href="https://sites.google.com/view/terms-of-use-shadow-trail">https://sites.google.com/view/terms-of-use-shadow-trail</a></p>
-    <p>Pertanyaan: <a href="mailto:halo.jejakbayangan@gmail.com">halo.jejakbayangan@gmail.com</a> · <a href="mailto:support@mufe3.dev">support@mufe3.dev</a></p>
-  </div>
-</main>
-<footer>
-  © 2026 Mufe3 Studio · <a href="https://mufe3.github.io/">mufe3.github.io</a> · <a href="https://mufe3.github.io/privacy-policy.html">Kebijakan Privasi</a>
-</footer>
+    <!-- Features Section -->
+    <section id="features" class="section" style="background-color: var(--light);">
+        <div class="container">
+            <h2 class="section-title fade-in">Fitur Unggulan</h2>
+            <div class="content-box fade-in">
+                <ul>
+                    <li><strong>Pencarian Anonim:</strong> Lacak jejak tanpa meninggalkan identitas.</li>
+                    <li><strong>Tanpa Iklan Mengganggu:</strong> Pengalaman pengguna yang bersih dan fokus.</li>
+                    <li><strong>Antarmuka Intuitif:</strong> Desain mudah digunakan untuk semua kalangan.</li>
+                    <li><strong>Hemat Baterai:</strong> Optimasi performa untuk penggunaan jangka panjang.</li>
+                    <li><strong>Mode Gelap:</strong> Nyaman di mata saat digunakan malam hari.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Komitmen Privasi</h2>
+            <div class="content-box fade-in">
+                <p>Kami sangat serius mengenai privasi Anda. Berikut adalah jaminan kami:</p>
+                <div class="privacy-note">
+                    <strong><i class="fas fa-shield-alt"></i> Data Lokal 100%</strong><br>
+                    Semua data pencarian disimpan hanya di perangkat Anda. Kami tidak memiliki akses ke riwayat aktivitas Anda.
+                </div>
+                <br>
+                <p>Jika Anda memiliki pertanyaan lebih lanjut mengenai kebijakan privasi, silakan hubungi tim dukungan kami melalui halaman utama.</p>
+            </div>
+            
+            <div class="btn-group fade-in">
+                <a href="privacy-policy.html" class="btn btn-outline">Baca Kebijakan Privasi Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mufe3 Studio. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="privacy-policy.html">Privasi</a>
+                <a href="#">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 20) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Fade in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
