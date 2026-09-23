@@ -6,125 +6,158 @@
     <title>Jejak Bayangan - Mufe3 Studio</title>
     <meta name="description" content="Jejak Bayangan adalah aplikasi inovatif untuk melacak jejak digital Anda dengan privasi terjamin.">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Sama persis dengan index.html) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* CSS Variables (Sama persis dengan index.html) */
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
             --secondary: #8b5cf6;
+            --accent: #ec4899;
             --dark: #0f172a;
+            --dark-light: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: var(--dark);
-            line-height: 1.7;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.2; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Navbar */
+        /* Navbar (Sama persis dengan index.html) */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .navbar.scrolled { box-shadow: var(--shadow-md); }
-        .nav-container {
-            display: flex; justify-content: space-between; align-items: center; height: 70px;
-        }
+        .navbar.scrolled { box-shadow: var(--shadow-md); background: rgba(255, 255, 255, 0.98); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo {
-            font-size: 1.4rem; font-weight: 800;
-            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 1.5rem; font-weight: 800;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--dark); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { font-weight: 500; color: var(--dark); position: relative; }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--gradient); transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: var(--primary); }
-        .btn-download {
-            background: var(--gradient); color: white; padding: 10px 20px;
-            border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
 
-        /* Hero */
+        /* Hero Section (Disesuaikan untuk Jejak Bayangan) */
         .hero {
             padding: 140px 0 80px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
-            text-align: center;
             position: relative; overflow: hidden;
         }
         .hero::before {
-            content: ''; position: absolute; top: -10%; right: -10%;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
+            content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%; animation: float 6s ease-in-out infinite;
         }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 15px; color: var(--dark); }
-        .hero p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto 30px; }
-        .badge {
-            display: inline-block; padding: 6px 12px; background: rgba(99, 102, 241, 0.1);
-            color: var(--primary); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        
+        .hero-content { text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block; padding: 8px 16px; background: rgba(99, 102, 241, 0.1);
+            color: var(--primary); border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;
         }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; line-height: 1.8; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+            border-radius: 12px; font-weight: 600; font-size: 1rem; transition: var(--transition); cursor: pointer; border: none;
+        }
+        .btn-primary {
+            background: var(--gradient); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5); }
 
         /* Content Sections */
-        .section { padding: 60px 0; background: white; }
-        .section-title { font-size: 1.8rem; margin-bottom: 20px; color: var(--dark); position: relative; display: inline-block; }
-        .section-title::after {
-            content: ''; position: absolute; bottom: -8px; left: 0; width: 40px; height: 3px;
-            background: var(--gradient); border-radius: 2px;
-        }
-        .content-box {
-            background: #f8fafc; padding: 30px; border-radius: 16px;
-            border: 1px solid #e2e8f0; margin-top: 20px;
-        }
-        .feature-list { list-style: none; margin-top: 20px; }
-        .feature-list li {
-            margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px;
-        }
-        .feature-list i { color: var(--primary); margin-top: 4px; }
+        .section { padding: 80px 0; background: white; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; color: var(--dark); }
+        .section-header p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto; }
 
-        /* Privacy Box */
-        .privacy-highlight {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-left: 4px solid var(--primary);
-            padding: 25px; border-radius: 8px; margin: 30px 0;
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: white; padding: 30px; border-radius: 16px;
+            box-shadow: var(--shadow-md); border: 1px solid #f1f5f9;
+            transition: var(--transition);
         }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .feature-icon {
+            width: 60px; height: 60px; background: var(--gradient); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 20px;
+        }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--dark); }
+        .feature-card p { color: var(--gray); line-height: 1.6; }
 
-        /* Footer */
-        .footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; }
-        .footer p { opacity: 0.7; font-size: 0.9rem; }
-        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
-        .footer-links a { color: white; opacity: 0.8; font-size: 0.9rem; }
-        .footer-links a:hover { opacity: 1; text-decoration: underline; }
+        /* Privacy Highlight */
+        .privacy-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%); }
+        .privacy-box {
+            background: white; padding: 40px; border-radius: 20px;
+            box-shadow: var(--shadow-xl); text-align: center; max-width: 800px; margin: 0 auto;
+        }
+        .privacy-box i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        .privacy-box h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--dark); }
+        .privacy-box p { color: var(--gray); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
 
-        /* Animation */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        /* Footer (Sama persis dengan index.html) */
+        .footer { background: var(--dark); color: white; padding: 60px 0 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-logo { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .footer-desc { color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 20px; color: white; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #94a3b8; transition: var(--transition); }
+        .footer-links a:hover { color: white; padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); }
+        .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .feature-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -139,17 +172,17 @@
                 <li><a href="#features">Fitur</a></li>
                 <li><a href="#privacy">Privasi</a></li>
             </ul>
-            <a href="#" class="btn-download"><i class="fab fa-google-play"></i> Download</a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container fade-in">
-            <span class="badge">Aplikasi Privasi & Keamanan</span>
-            <h1>Jejak Bayangan</h1>
-            <p>Lacak jejak digital Anda dengan aman. Aplikasi ini dirancang untuk memberikan transparansi penuh atas data yang Anda tinggalkan di dunia maya.</p>
-            <a href="#" class="btn-download" style="padding: 14px 28px; font-size: 1.1rem;">
+        <div class="container hero-content fade-in">
+            <span class="hero-badge">Aplikasi Privasi & Keamanan</span>
+            <h1>Lacak Jejak Digital Anda dengan <span>Aman</span></h1>
+            <p>Jejak Bayangan hadir untuk memberikan transparansi penuh atas data yang Anda tinggalkan di dunia maya. Privasi Anda adalah prioritas utama kami.</p>
+            <a href="#" class="btn btn-primary">
                 <i class="fab fa-google-play"></i> Unduh di Play Store
             </a>
         </div>
@@ -157,74 +190,98 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-        <div class="container fade-in">
-            <h2 class="section-title">Tentang Aplikasi</h2>
-            <div class="content-box">
-                <p>Jejak Bayangan adalah solusi inovatif dari Mufe3 Studio yang membantu pengguna memahami dan mengelola jejak digital mereka. Dalam era di mana data adalah aset berharga, aplikasi ini hadir sebagai teman setia untuk menjaga privasi Anda tetap utuh.</p>
-                <p style="margin-top: 15px;">Kami percaya bahwa setiap pengguna berhak mengetahui apa yang terjadi dengan data mereka. Oleh karena itu, Jejak Bayangan dibangun dengan prinsip transparansi dan keamanan tingkat tinggi.</p>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Tentang Aplikasi</h2>
+                <p>Solusi inovatif dari Mufe3 Studio untuk memahami dan mengelola jejak digital Anda.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="fade-in">
+                <p style="font-size: 1.1rem; color: var(--gray); line-height: 1.8;">
+                    Dalam era di mana data adalah aset berharga, Jejak Bayangan dibangun dengan prinsip transparansi dan keamanan tingkat tinggi. Kami percaya bahwa setiap pengguna berhak mengetahui apa yang terjadi dengan data mereka. Aplikasi ini dirancang sebagai teman setia untuk menjaga privasi Anda tetap utuh tanpa mengorbankan kenyamanan.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="section" style="background: #f8fafc;">
-        <div class="container fade-in">
-            <h2 class="section-title">Fitur Unggulan</h2>
-            <ul class="feature-list">
-                <li>
-                    <i class="fas fa-check-circle fa-lg"></i>
-                    <div>
-                        <strong>Pelacakan Jejak Real-time</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Monitor aktivitas digital Anda secara langsung dan dapatkan notifikasi jika ada akses mencurigakan.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-shield-alt fa-lg"></i>
-                    <div>
-                        <strong>Enkripsi End-to-End</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Semua data Anda dilindungi dengan enkripsi militer-grade, memastikan hanya Anda yang bisa mengaksesnya.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-user-secret fa-lg"></i>
-                    <div>
-                        <strong>Mode Penyamaran</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Sembunyikan keberadaan aplikasi Anda dengan mode ikon tersamar untuk privasi ekstra.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-file-export fa-lg"></i>
-                    <div>
-                        <strong>Laporan Detail</strong>
-                        <p style="color: var(--gray); font-size: 0.95rem;">Ekspor laporan aktivitas harian, mingguan, atau bulanan dalam format PDF yang mudah dibaca.</p>
-                    </div>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Fitur Unggulan</h2>
+                <p>Teknologi canggih untuk melindungi privasi digital Anda.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-radar"></i></div>
+                    <h3>Pelacakan Real-time</h3>
+                    <p>Monitor aktivitas digital Anda secara langsung dan dapatkan notifikasi jika ada akses mencurigakan.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Enkripsi End-to-End</h3>
+                    <p>Semua data Anda dilindungi dengan enkripsi militer-grade, memastikan hanya Anda yang bisa mengaksesnya.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Mode Penyamaran</h3>
+                    <p>Sembunyikan keberadaan aplikasi dengan mode ikon tersamar untuk lapisan privasi ekstra.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Laporan Detail</h3>
+                    <p>Ekspor laporan aktivitas harian atau mingguan dalam format PDF yang mudah dibaca dan dipahami.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Privacy Section -->
-    <section id="privacy" class="section">
-        <div class="container fade-in">
-            <h2 class="section-title">Komitmen Privasi</h2>
-            <div class="privacy-highlight">
-                <h3 style="margin-bottom: 10px; color: var(--primary-dark);"><i class="fas fa-lock"></i> Data Anda Adalah Milik Anda</h3>
+    <section id="privacy" class="section privacy-section">
+        <div class="container">
+            <div class="privacy-box fade-in">
+                <i class="fas fa-lock"></i>
+                <h3>Komitmen Privasi</h3>
                 <p>Kami tidak menjual, menyewakan, atau membagikan data pribadi Anda kepada pihak ketiga manapun. Jejak Bayangan beroperasi dengan prinsip "Zero-Knowledge", artinya bahkan kami sebagai pengembang tidak dapat melihat data Anda.</p>
+                <a href="privacy-policy.html" style="color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                    Baca Kebijakan Privasi Lengkap <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <p style="color: var(--gray);">Untuk informasi lebih lanjut mengenai bagaimana kami menangani data, silakan baca kebijakan privasi lengkap kami.</p>
-            <a href="privacy-policy.html" style="color: var(--primary); font-weight: 600; margin-top: 10px; display: inline-block;">Baca Kebijakan Privasi &rarr;</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h3 style="margin-bottom: 10px;">Mufe3 Studio</h3>
-            <p>&copy; 2024 Mufe3 Studio. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="#">Support</a>
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Mufe3 Studio</div>
+                    <p class="footer-desc">Creating innovative mobile solutions that empower users and simplify digital experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:support@mufe3.dev">support@mufe3.dev</a></li>
+                        <li><a href="#">Support Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mufe3 Studio. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -233,7 +290,7 @@
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 20) navbar.classList.add('scrolled');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
@@ -242,9 +299,38 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+                    if (window.innerWidth <= 768) navLinks.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
