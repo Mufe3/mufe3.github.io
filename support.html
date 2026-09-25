@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Bantuan - Mufe3 Studio</title>
+    <meta name="description" content="Pusat bantuan dan dukungan aplikasi Mufe3 Studio. Temukan jawaban atas pertanyaan umum atau hubungi tim kami.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { box-shadow: var(--shadow-md); }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; height: 70px;
+        }
+        .logo {
+            font-size: 1.5rem; font-weight: 800;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Header */
+        .support-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            text-align: center;
+        }
+        .support-header h1 {
+            font-size: 2.5rem; margin-bottom: 15px;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .support-header p { color: var(--gray); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+        /* Container */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin: -30px auto 60px; position: relative; z-index: 2;
+        }
+        .contact-card {
+            background: white; padding: 30px; border-radius: 16px;
+            box-shadow: var(--shadow-lg); text-align: center;
+            transition: var(--transition); border: 1px solid #f1f5f9;
+        }
+        .contact-card:hover { transform: translateY(-8px); }
+        .contact-icon {
+            width: 60px; height: 60px; background: var(--gradient); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; color: white; font-size: 1.5rem;
+        }
+        .contact-card h3 { margin-bottom: 8px; font-size: 1.2rem; }
+        .contact-card p { color: var(--gray); font-size: 0.95rem; }
+        .contact-card a.action { color: var(--primary); font-weight: 600; display: inline-block; margin-top: 10px; }
+        .contact-card a.action:hover { text-decoration: underline; }
+
+        /* FAQ */
+        .faq-section { padding: 40px 0 80px; }
+        .section-title { font-size: 1.8rem; margin-bottom: 30px; text-align: center; }
+        .faq-item {
+            background: white; border-radius: 12px; margin-bottom: 15px;
+            box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid #f1f5f9;
+        }
+        .faq-question {
+            width: 100%; text-align: left; padding: 20px 25px; background: none; border: none;
+            font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.05rem;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            color: var(--dark);
+        }
+        .faq-question i { transition: var(--transition); color: var(--primary); }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            padding: 0 25px; color: var(--gray);
+        }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
+
+        /* Footer */
+        .footer {
+            background: var(--dark); color: white; padding: 40px 0; text-align: center;
+        }
+        .footer-logo {
+            font-size: 1.5rem; font-weight: 800; margin-bottom: 10px;
+            background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .footer p { opacity: 0.7; font-size: 0.9rem; }
+        .footer-links { margin-top: 15px; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a { color: white; opacity: 0.8; font-size: 0.9rem; }
+        .footer-links a:hover { opacity: 1; }
+
+        /* Animation */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .support-header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mufe3 Studio</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jejak-bayangan.html">Jejak Bayangan</a></li>
+                <li><a href="privacy-policy.html">Privasi</a></li>
+                <li><a href="#">Bantuan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="support-header">
+        <div class="container fade-in">
+            <h1><i class="fas fa-headset"></i> Pusat Bantuan</h1>
+            <p>Butuh bantuan? Tim Mufe3 Studio siap membantu Anda menemukan solusi untuk aplikasi kami.</p>
+        </div>
+    </header>
+
+    <!-- Contact Cards -->
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email Dukungan</h3>
+                <p>Kirim pertanyaan atau laporan masalah Anda langsung ke tim kami.</p>
+                <a href="mailto:support@mufe3.dev" class="action">support@mufe3.dev &rarr;</a>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="contact-icon"><i class="fab fa-google-play"></i></div>
+                <h3>Ulasan Play Store</h3>
+                <p>Beri rating dan ulasan agar aplikasi kami semakin baik.</p>
+                <a href="#" class="action">Tulis Ulasan &rarr;</a>
+            </div>
+            <div class="contact-card fade-in">
+                <div class="contact-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Kebijakan Privasi</h3>
+                <p>Pelajari bagaimana kami melindungi data dan privasi Anda.</p>
+                <a href="privacy-policy.html" class="action">Baca Kebijakan &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Pertanyaan Umum (FAQ)</h2>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">Apakah aplikasi Jejak Bayangan gratis? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Ya, Jejak Bayangan dapat diunduh dan digunakan secara gratis. Beberapa fitur lanjutan mungkin tersedia melalui pembelian dalam aplikasi.</p></div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">Apakah data saya aman? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Sangat aman. Kami menerapkan prinsip pengumpulan data seminimal mungkin dan tidak menjual data pribadi Anda kepada pihak ketiga. Detail lengkap ada di Kebijakan Privasi kami.</p></div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">Bagaimana cara melaporkan bug? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Anda bisa mengirim email ke support@mufe3.dev dengan deskripsi masalah, tipe perangkat, dan versi aplikasi yang Anda gunakan.</p></div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">Aplikasi mendukung perangkat apa saja? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer"><p>Semua aplikasi Mufe3 Studio saat ini tersedia untuk perangkat Android dengan versi minimum yang tercantum di halaman Play Store masing-masing aplikasi.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Mufe3 Studio</div>
+            <p>&copy; 2026 Mufe3 Studio. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="jejak-bayangan.html">Jejak Bayangan</a>
+                <a href="privacy-policy.html">Privasi</a>
+                <a href="mailto:support@mufe3.dev">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Fade in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
