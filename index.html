@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="74bQqY7XVlYFLKHCjyOg_oHmYJUvGqfeMlDEPPvT7uY" />
     <meta name="description" content="Mufe3 Studio - Smart, privacy-first Android utilities engineered for everyday automation, effortless productivity, and uncompromising personal privacy.">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0f172a">
     
     <meta property="og:title" content="Mufe3 Studio | Smart, Privacy-First Android Utilities">
     <meta property="og:description" content="Engineered for everyday automation, effortless productivity, and uncompromising personal privacy. Explore our suite of lightweight Android apps.">
@@ -22,6 +22,7 @@
     
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -38,29 +39,29 @@
             --nav-bg: rgba(248, 250, 252, 0.85);
             --footer-bg: #f1f5f9;
             --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 1px 1px rgba(15, 23, 42, 0.03);
-            --shadow-lg: 0 25px 60px -15px rgba(99, 102, 241, 0.2);
-            --btn-primary: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
-            --btn-hover: linear-gradient(135deg, #4338ca 0%, #0891b2 100%);
-            --accent: #4f46e5;
-            --accent-light: rgba(79, 70, 229, 0.1);
+            --shadow-lg: 0 25px 60px -15px rgba(245, 158, 11, 0.2);
+            --btn-primary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --btn-hover: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            --accent: #d97706;
+            --accent-light: rgba(245, 158, 11, 0.12);
             --arrow-bg: rgba(255, 255, 255, 0.95);
         }
 
         [data-theme="dark"] {
-            --bg: #080c14;
-            --bg-gradient: linear-gradient(135deg, #050811 0%, #0f172a 50%, #1e1b4b 100%);
+            --bg: #07090e;
+            --bg-gradient: linear-gradient(135deg, #05070c 0%, #0f172a 50%, #171b26 100%);
             --text: #f8fafc;
             --text-secondary: #94a3b8;
             --card-bg: #0f172a;
             --border: rgba(255, 255, 255, 0.08);
-            --nav-bg: rgba(8, 12, 20, 0.85);
-            --footer-bg: #06090f;
+            --nav-bg: rgba(7, 9, 14, 0.88);
+            --footer-bg: #05070a;
             --shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            --shadow-lg: 0 25px 60px rgba(99, 102, 241, 0.25);
-            --btn-primary: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-            --btn-hover: linear-gradient(135deg, #4f46e5 0%, #0891b2 100%);
-            --accent: #818cf8;
-            --accent-light: rgba(99, 102, 241, 0.18);
+            --shadow-lg: 0 25px 60px rgba(245, 158, 11, 0.22);
+            --btn-primary: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            --btn-hover: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --accent: #fbbf24;
+            --accent-light: rgba(245, 158, 11, 0.2);
             --arrow-bg: rgba(15, 23, 42, 0.95);
         }
 
@@ -86,8 +87,8 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.6); }
         }
 
         @keyframes slideInUp {
@@ -161,7 +162,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.35));
+            filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.35));
             transition: transform 0.3s ease;
         }
 
@@ -174,7 +175,7 @@
             font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+            background: linear-gradient(135deg, #f59e0b, #fbbf24, #f97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -274,7 +275,7 @@
 
         .theme-toggle:hover {
             transform: scale(1.1) rotate(15deg);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
         }
 
         .theme-toggle svg {
@@ -314,11 +315,11 @@
             align-items: center;
             justify-content: center;
             padding: 130px 20px 90px;
-            background-color: #080c14;
+            background-color: #07090e;
             background-image: 
-                radial-gradient(circle at 50% 18%, rgba(99, 102, 241, 0.35) 0%, rgba(6, 182, 212, 0.18) 35%, transparent 70%),
-                radial-gradient(circle at 85% 65%, rgba(139, 92, 246, 0.16) 0%, transparent 45%),
-                radial-gradient(circle at 15% 75%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 18%, rgba(245, 158, 11, 0.28) 0%, rgba(217, 119, 6, 0.14) 35%, transparent 70%),
+                radial-gradient(circle at 85% 65%, rgba(245, 158, 11, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 15% 75%, rgba(251, 191, 36, 0.08) 0%, transparent 45%),
                 linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
@@ -329,7 +330,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, transparent 45%, #080c14 98%);
+            background: radial-gradient(circle at 50% 50%, transparent 45%, #07090e 98%);
             pointer-events: none;
         }
 
@@ -405,14 +406,14 @@
         .btn-hero-primary {
             background: #ffffff;
             color: #0f172a;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba(99, 102, 241, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba(245, 158, 11, 0.25);
         }
 
         .btn-hero-primary:hover {
             transform: translateY(-4px);
             background: #f8fafc;
-            box-shadow: 0 14px 40px rgba(99, 102, 241, 0.4);
-            color: #4f46e5;
+            box-shadow: 0 14px 40px rgba(245, 158, 11, 0.4);
+            color: #d97706;
         }
 
         .btn-hero-secondary {
@@ -578,7 +579,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981);
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f97316);
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -592,13 +593,13 @@
             transform: scale(1);
             opacity: 1;
             box-shadow: var(--shadow-lg);
-            border-color: rgba(99, 102, 241, 0.3);
+            border-color: rgba(245, 158, 11, 0.4);
         }
 
         .app-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.22);
-            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.22);
+            border-color: rgba(245, 158, 11, 0.45);
             opacity: 1;
         }
 
@@ -615,7 +616,7 @@
             font-weight: 700; 
             font-size: 2.2rem; 
             margin: 0 auto 24px;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.25);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -668,14 +669,14 @@
         }
 
         .cat-indigo {
-            background: rgba(99, 102, 241, 0.1);
-            color: #4f46e5;
-            border: 1px solid rgba(99, 102, 241, 0.22);
+            background: rgba(245, 158, 11, 0.12);
+            color: #d97706;
+            border: 1px solid rgba(245, 158, 11, 0.25);
         }
         [data-theme="dark"] .cat-indigo {
-            background: rgba(99, 102, 241, 0.18);
-            color: #a5b4fc;
-            border-color: rgba(165, 180, 252, 0.3);
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.35);
         }
 
         .cat-purple {
@@ -794,9 +795,9 @@
         }
 
         .btn-playstore:hover {
-            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
             border-color: transparent;
             color: #ffffff;
         }
@@ -850,7 +851,7 @@
             color: white;
             border-color: transparent;
             transform: translateY(-50%) scale(1.15);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.3);
         }
 
         .slider-arrow.prev {
@@ -917,7 +918,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+            background: linear-gradient(135deg, #f59e0b, #fbbf24, #f97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1108,16 +1109,14 @@
         <div class="nav-container">
             <a href="#" class="brand-link">
                 <div class="brand-logo-mark">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="32" rx="9" fill="url(#brandGrad)" />
-                        <path d="M8 22V11L12.5 17L16 12.5L19.5 17L24 11V22" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="24" cy="9" r="2" fill="#ec4899" />
-                        <defs>
-                            <linearGradient id="brandGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6366f1" />
-                                <stop offset="1" stop-color="#8b5cf6" />
-                            </linearGradient>
-                        </defs>
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" rx="26" fill="#0f172a"/>
+                        <path d="M18 72L36 28H48L30 72H18Z" fill="#ffffff"/>
+                        <path d="M36 28L50 58L64 28H52L50 34L48 28H36Z" fill="#f59e0b"/>
+                        <path d="M52 72L70 28H82L64 72H52Z" fill="#ffffff"/>
+                        <rect x="64" y="38" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
+                        <rect x="58" y="52" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
+                        <rect x="52" y="66" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
                     </svg>
                 </div>
                 <span class="brand-name">Mufe3 Studio</span>
@@ -1371,16 +1370,14 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <span class="brand-logo-mark" style="display:inline-flex; vertical-align:middle; margin-right:8px;">
-                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="32" rx="9" fill="url(#footerBrandGrad)" />
-                        <path d="M8 22V11L12.5 17L16 12.5L19.5 17L24 11V22" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="24" cy="9" r="2" fill="#ec4899" />
-                        <defs>
-                            <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6366f1" />
-                                <stop offset="1" stop-color="#8b5cf6" />
-                            </linearGradient>
-                        </defs>
+                    <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" rx="26" fill="#0f172a"/>
+                        <path d="M18 72L36 28H48L30 72H18Z" fill="#ffffff"/>
+                        <path d="M36 28L50 58L64 28H52L50 34L48 28H36Z" fill="#f59e0b"/>
+                        <path d="M52 72L70 28H82L64 72H52Z" fill="#ffffff"/>
+                        <rect x="64" y="38" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
+                        <rect x="58" y="52" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
+                        <rect x="52" y="66" width="18" height="6.5" rx="3.2" fill="#f59e0b"/>
                     </svg>
                 </span>
                 <span>Mufe3 Studio</span>
