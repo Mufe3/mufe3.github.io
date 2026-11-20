@@ -239,7 +239,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#apps">Apps</a></li>
-                <li><a href="jejak-bayangan.html">Jejak Bayangan</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="privacy-policy.html" style="color: var(--primary);">Privacy</a></li>
                 <li><a href="support.html">Support</a></li>
             </ul>
             <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
@@ -293,17 +294,43 @@
         </div>
 
         <div class="policy-section">
-            <h2><i class="fas fa-shield-alt"></i> 5. Data Security</h2>
-            <p>We employ standard technical and administrative safeguards designed to protect collected data from unauthorized access, loss, or misuse. However, please understand that no electronic storage or Internet transmission is 100% invulnerable.</p>
+            <h2><i class="fas fa-shield-alt"></i> 5. On-Device Storage & Zero-Knowledge Architecture</h2>
+            <p>Most applications developed by Mufe3 Studio store your data (such as OCR scans, notes, notification history, or journal entries) strictly on your local device. We do not transmit or host your personal files on remote cloud servers. You retain 100% ownership and control over your personal data at all times, and you can erase it instantly by clearing app data in your Android settings or uninstalling the application.</p>
         </div>
 
         <div class="policy-section">
-            <h2><i class="fas fa-edit"></i> 6. Updates to This Policy</h2>
+            <h2><i class="fas fa-key"></i> 6. Android App Permissions Transparency</h2>
+            <p>Our applications only request Android system permissions that are strictly necessary to deliver specific user-requested features:</p>
+            <ul>
+                <li><strong>Notification Listener:</strong> Used solely by notification utility apps to archive logs locally on your device or extract receipt data without cloud processing.</li>
+                <li><strong>Accessibility Service:</strong> Used strictly by automation tools (such as gesture recorders or auto clickers) to perform user-configured actions. We never log passwords, keystrokes, or sensitive screen data.</li>
+                <li><strong>Camera / Storage:</strong> Used strictly to capture or select images for on-device OCR text recognition and document generation.</li>
+            </ul>
+            <p>Permissions are never leveraged for covert data collection, ad profiling, or background tracking.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2><i class="fas fa-lock"></i> 7. Data Security</h2>
+            <p>We employ standard technical and administrative safeguards designed to protect collected diagnostic data from unauthorized access, loss, or misuse. Because personal user data remains on your physical device, your device's security controls (such as PIN, biometrics, and OS encryption) provide the primary defense.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2><i class="fas fa-child"></i> 8. Children's Privacy (COPPA)</h2>
+            <p>Our applications and services are not directed to individuals under the age of 13. We do not knowingly collect personal identifiable information from children under 13. If you become aware that a child has provided us with personal data, please contact us immediately at <a href="mailto:support@mufe3.dev" style="color: var(--primary);">support@mufe3.dev</a> and we will take immediate steps to delete such information.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2><i class="fas fa-user-shield"></i> 9. User Rights (GDPR & CCPA)</h2>
+            <p>Depending on your jurisdiction, you hold rights regarding your personal information, including the right to access, rectify, or request deletion of data. Since our applications operate under zero-knowledge and offline-first models, your data resides entirely on your device and can be exported or purged at your discretion.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2><i class="fas fa-edit"></i> 10. Updates to This Policy</h2>
             <p>We may periodically update this Privacy Policy to reflect app updates and legal requirements. Significant revisions will be published on this page alongside a revised effective date. We recommend checking back periodically.</p>
         </div>
 
         <div class="policy-section">
-            <h2><i class="fas fa-envelope"></i> 7. Contact Us</h2>
+            <h2><i class="fas fa-envelope"></i> 11. Contact Us</h2>
             <p>If you have any questions, suggestions, or privacy inquiries regarding this Privacy Policy, please feel free to contact us via email:</p>
             <p><a href="mailto:support@mufe3.dev" style="color: var(--primary); font-weight: 600;">support@mufe3.dev</a></p>
         </div>
