@@ -7,6 +7,7 @@
     <meta name="description" content="Privacy Policy of Mufe3 Studio. We respect your privacy and protect data across all our applications.">
     
     <!-- Google Fonts -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +64,15 @@
         .logo {
             font-size: 1.5rem; font-weight: 800;
             background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .brand-logo-mark {
+            display: flex; align-items: center; justify-content: center;
+            filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.35));
+            transition: transform 0.3s ease;
+        }
+        .logo:hover .brand-logo-mark {
+            transform: scale(1.08) rotate(-4deg);
         }
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { font-weight: 500; color: var(--dark); position: relative; }
@@ -178,7 +188,22 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">Mufe3 Studio</a>
+            <a href="index.html" class="logo">
+                <span class="brand-logo-mark">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="9" fill="url(#navBrandGradP)" />
+                        <path d="M8 22V11L12.5 17L16 12.5L19.5 17L24 11V22" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="24" cy="9" r="2" fill="#ec4899" />
+                        <defs>
+                            <linearGradient id="navBrandGradP" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366f1" />
+                                <stop offset="1" stop-color="#8b5cf6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span>Mufe3 Studio</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#apps">Apps</a></li>
@@ -256,7 +281,22 @@
     <footer class="footer" id="contact">
         <div class="footer-content">
             <div>
-                <div class="footer-logo">Mufe3 Studio</div>
+                <div class="footer-logo">
+                    <span class="brand-logo-mark" style="display:inline-flex; vertical-align:middle; margin-right:8px;">
+                        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="9" fill="url(#footBrandGradP)" />
+                            <path d="M8 22V11L12.5 17L16 12.5L19.5 17L24 11V22" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="24" cy="9" r="2" fill="#ec4899" />
+                            <defs>
+                                <linearGradient id="footBrandGradP" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366f1" />
+                                <stop offset="1" stop-color="#8b5cf6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </span>
+                    <span>Mufe3 Studio</span>
+                </div>
                 <p class="footer-desc">Creating innovative mobile solutions that empower users and simplify digital experiences.</p>
                 <div class="social-links">
                     <a href="https://github.com/mufe3" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
