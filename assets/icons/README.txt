@@ -8,6 +8,9 @@ Folder ini (`assets/icons/`) digunakan untuk menyimpan logo/ikon aplikasi yang d
 3. `chameleon.png`       -> Ikon untuk aplikasi **Chameleon**
 4. `prompt-notes.png`    -> Ikon untuk aplikasi **Prompt Notes**
 5. `notiscan.png`        -> Ikon untuk aplikasi **NotiScan**
+6. `noticatch.png`       -> Ikon untuk aplikasi **NotiCatch**
+7. `autoklik-flow.png`   -> Ikon untuk aplikasi **Flow Auto Clicker**
+8. `omnilabel.png`       -> Ikon untuk aplikasi **OmniLabel**
 
 ### Rekomendasi Format:
 - **Format:** PNG (transparan atau latar belakang solid) atau WebP
